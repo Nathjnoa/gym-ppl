@@ -104,7 +104,7 @@ médico.
 ## Publicación
 
 - Repo público `gym-ppl` en GitHub + GitHub Pages desde `main` (root).
-- URL: `https://<usuario>.github.io/gym-ppl/`.
+- URL: `https://nathjnoa.github.io/gym-ppl/`.
 - Antes de crear el repo y hacer push se pide OK explícito al usuario.
 
 ## Verificación

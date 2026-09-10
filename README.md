@@ -11,7 +11,7 @@ sin frameworks, sin backend. Publicar = `git push`.
 
 ## Cómo usarla
 
-**Link:** pendiente de publicar (GitHub Pages).
+**Link:** https://nathjnoa.github.io/gym-ppl/
 
 Mientras tanto, en local:
 
