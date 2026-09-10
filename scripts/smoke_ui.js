@@ -46,6 +46,14 @@ const checks = [
     const tarjetas = (html.match(/class="card"/g) || []).length;
     return html.includes("Sesión sugerida") && html.includes("Cobertura del día") && tarjetas === 25 && html.includes("Pecho");
   }],
+  ["día: filtro por equipo (polea)", () => {
+    global.location.hash = "#/dia/push";
+    global.__route();
+    elApp.listeners.click({ target: { closest: sel => sel === "[data-equipo]" ? { dataset: { equipo: "cable" } } : null } });
+    const html = elApp.innerHTML;
+    const tarjetas = (html.match(/class="card"/g) || []).length;
+    return tarjetas === 5 && html.includes("Polea") && html.includes("activo");
+  }],
   ["detalle: pasos y músculos", () => {
     global.location.hash = "#/detalle/0025";
     global.__route();

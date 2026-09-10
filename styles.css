@@ -22,6 +22,8 @@ h2{font-size:17px; margin:22px 0 10px; color:var(--mut); text-transform:uppercas
 .chips{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 0}
 .chip{font-size:12px; padding:2px 8px; border-radius:999px; background:var(--card2); color:#c9d3e2; border:1px solid var(--line)}
 .chip.target{background:#243247; color:#cfe0ff}
+button.chip{font:inherit; font-size:12px; cursor:pointer; padding:4px 10px}
+button.chip.activo{background:#243247; color:#cfe0ff; border-color:#3a5680}
 .dias{display:grid; gap:12px; grid-template-columns:1fr}
 @media(min-width:640px){.dias{grid-template-columns:1fr 1fr}}
 .dia{

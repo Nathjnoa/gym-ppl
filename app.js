@@ -33,6 +33,7 @@ const BODY_DIA = {"chest":"push","shoulders":"push","back":"pull","upper legs":"
 const $app = document.getElementById("app");
 const $ = sel => document.querySelector(sel);
 let ppl = [], guias = null, library = null, cargandoLib = null;
+let diaActual = null, filtroEquipoDia = "";
 const busqueda = {texto:"", dia:"", musculo:"", equipo:""};
 
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -80,21 +81,30 @@ function renderHome(){
 }
 
 function renderDia(d){
+  if (d !== diaActual) { filtroEquipoDia = ""; diaActual = d; }
   const items = ppl.filter(r => r.dia === d).sort((a, b) => a.orden - b.orden);
   if (!items.length) { renderHome(); return; }
-  const sug = items.filter(r => r.sesion === "sugerido");
-  const opc = items.filter(r => r.sesion !== "sugerido");
+  const equipos = [...new Set(items.map(r => r.equipment))]
+    .sort((a, b) => equip(a).localeCompare(equip(b), "es"));
+  const visibles = filtroEquipoDia ? items.filter(r => r.equipment === filtroEquipoDia) : items;
+  const sug = visibles.filter(r => r.sesion === "sugerido");
+  const opc = visibles.filter(r => r.sesion !== "sugerido");
   const cobertura = {};
-  for (const r of items) cobertura[r.target] = (cobertura[r.target] || 0) + 1;
+  for (const r of visibles) cobertura[r.target] = (cobertura[r.target] || 0) + 1;
   const cob = Object.entries(cobertura).sort((a, b) => b[1] - a[1])
     .map(([t, c]) => `<span class="chip">${esc(musculo(t))} ${c}</span>`).join("");
+  const chipsEquipo = [`<button class="chip filtro${filtroEquipoDia === "" ? " activo" : ""}" data-equipo="">Todos</button>`]
+    .concat(equipos.map(e => `<button class="chip filtro${filtroEquipoDia === e ? " activo" : ""}" data-equipo="${esc(e)}">${esc(equip(e))}</button>`))
+    .join("");
   const guia = guias && guias.dias && guias.dias[d];
   mostrar(`<a class="volver" href="#/" data-back>&larr; Todos los días</a>
     <h1>${DIA_TITULO[d]}</h1>
     ${guia ? `<p class="aviso">${esc(guia.nota)}</p>` : ""}
+    <h2>Equipo</h2><div class="cobertura">${chipsEquipo}</div>
     <h2>Cobertura del día</h2><div class="cobertura">${cob}</div>
-    <h2>Sesión sugerida</h2><div class="lista">${sug.map(card).join("")}</div>
+    ${sug.length ? `<h2>Sesión sugerida</h2><div class="lista">${sug.map(card).join("")}</div>` : ""}
     ${opc.length ? `<h2>Más opciones</h2><div class="lista">${opc.map(card).join("")}</div>` : ""}
+    ${!visibles.length ? `<p class="vacio">Sin ejercicios de ese equipo en este día.</p>` : ""}
     ${guia ? `<h2>Consejos del día</h2>${guia.bloques.map(bloqueHTML).join("")}` : ""}`);
 }
 
@@ -194,6 +204,8 @@ function route(){
 
 $app.addEventListener("click", e => {
   if (e.target.closest("[data-back]")) { e.preventDefault(); history.back(); return; }
+  const chipEq = e.target.closest("[data-equipo]");
+  if (chipEq && diaActual) { filtroEquipoDia = chipEq.dataset.equipo; renderDia(diaActual); return; }
   const el = e.target.closest(".card");
   if (el && el.dataset.id) location.hash = "#/detalle/" + el.dataset.id;
 });

@@ -21,8 +21,9 @@ python3 -m http.server 8080
 ```
 
 - Inicio: Push / Pull / Pierna + Core (opcional) + buscador.
-- Cada día: cobertura por músculo, sesión sugerida (6-8 ejercicios) y más
-  opciones del pool curado.
+- Cada día: filtro rápido por equipo (barra, mancuerna, polea, máquina…),
+  cobertura por músculo, sesión sugerida (6-8 ejercicios) y más opciones del
+  pool curado.
 - Toca una tarjeta para ver el GIF, la técnica numerada, cómo sentirlo y el
   error típico.
 - Buscar: filtra los 1,324 ejercicios del dataset por día, músculo y equipo.
