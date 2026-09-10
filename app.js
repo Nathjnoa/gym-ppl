@@ -30,6 +30,7 @@ const TARGET_DIA = {
 };
 const BODY_DIA = {"chest":"push","shoulders":"push","back":"pull","upper legs":"pierna","lower legs":"pierna","waist":"core"};
 
+const VERSION = "20260910";
 const $app = document.getElementById("app");
 const $ = sel => document.querySelector(sel);
 let ppl = [], guias = null, library = null, cargandoLib = null;
@@ -111,7 +112,7 @@ function renderDia(d){
 function cargarLibrary(){
   if (library) return Promise.resolve(library);
   if (!cargandoLib) {
-    cargandoLib = fetch("data/library.json").then(r => r.json()).then(d => { library = d; return d; });
+    cargandoLib = fetch("data/library.json?v=" + VERSION).then(r => r.json()).then(d => { library = d; return d; });
   }
   return cargandoLib;
 }
@@ -211,8 +212,8 @@ $app.addEventListener("click", e => {
 });
 
 Promise.all([
-  fetch("data/ppl.json").then(r => r.json()),
-  fetch("data/guias.json").then(r => r.json())
+  fetch("data/ppl.json?v=" + VERSION).then(r => r.json()),
+  fetch("data/guias.json?v=" + VERSION).then(r => r.json())
 ]).then(([p, g]) => {
   ppl = p; guias = g;
   window.addEventListener("hashchange", route);

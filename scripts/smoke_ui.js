@@ -31,7 +31,7 @@ global.window = {
 global.location = { hash: "#/" };
 global.history = { back: () => {} };
 global.fetch = url => {
-  const p = path.join(raiz, url);
+  const p = path.join(raiz, url.split("?")[0]);
   return Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(p, "utf8"))) });
 };
 
