@@ -1,0 +1,84 @@
+id,dia,orden,nombre_es,tip,clave,sesion
+0025,push,1,Press de banca con barra,Aprieta las escápulas hacia atrás y abajo; baja la barra al esternón y empuja con los pies firmes en el piso.,Rebotar la barra en el pecho o perder el arco: baja controlado en 2-3 segundos.,sugerido
+0047,push,2,Press de banca inclinado con barra,Banco a 30-45 grados; baja la barra a la parte alta del pecho y siente el estiramiento.,Inclinar demasiado el banco: el trabajo se va al hombro y no al pecho.,sugerido
+0289,push,3,Press de banca con mancuernas,Muñecas sobre codos y codos a unos 45 grados del torso; abajo siente el pecho estirarse.,Bajar con los codos abiertos a 90 grados: sobrecarga el hombro.,sugerido
+0091,push,4,Press militar con barra,Aprieta glúteos y abdomen; sube la barra en línea con la nariz y la frente.,Arquear la espalda baja para empujar el peso.,sugerido
+0334,push,5,Elevaciones laterales con mancuernas,"El codo guía el movimiento, como si vertieras agua; sube hasta la altura del hombro.",Usar impulso de cadera o subir por encima del hombro encogiendo el trapecio.,sugerido
+0201,push,6,Extensión de tríceps en polea (pushdown),Codos pegados al torso: solo se mueve el antebrazo.,Separar los codos del torso y empujar con el hombro.,sugerido
+0060,push,7,Press francés (rompe cráneos) con barra,Codos fijos apuntando arriba; baja la barra hacia la frente con control.,Mover los codos y bajar al pecho: se convierte en press.,sugerido
+0314,push,8,Press inclinado con mancuernas,Inclinación de 30 grados; junta ligeramente las mancuernas arriba sin bloquear del todo.,Rango parcial: baja hasta sentir el estiramiento del pecho.,opcion
+0308,push,9,Aperturas con mancuernas,"Codos semiflexionados y fijos; imagina que abrazas un árbol, no hagas press.",Convertirlo en press o bajar más allá de tu rango cómodo.,opcion
+0171,push,10,Aperturas inclinadas en polea,Poleas bajas; cruza ligeramente las manos arriba y aprieta un segundo.,Encoger los hombros hacia las orejas.,opcion
+0577,push,11,Press de pecho en máquina,Ajusta el asiento para que los puños queden a la altura del pecho.,No ajustar el asiento y empujar con los hombros.,opcion
+0662,push,12,Flexiones,"Cuerpo en tabla, glúteos y abdomen firmes; codos a 45 grados del torso.",Cadera caída o subir solo la cabeza.,opcion
+0251,push,13,Fondos en paralelas (pecho),Inclínate al frente y abre un poco los codos para cargar el pecho.,Bajar más de lo que controlas con los hombros protraídos.,opcion
+0405,push,14,Press de hombros con mancuernas sentado,Espalda apoyada; sube sin bloquear del todo y baja a la altura de las orejas.,Chocar las mancuernas arriba y perder tensión.,opcion
+0178,push,15,Elevaciones laterales en polea,"Polea baja: tensión constante de abajo a arriba, sube lento.",Encoger el hombro al subir.,opcion
+0383,push,16,Pájaros con mancuernas (deltoide posterior),Torso casi paralelo al piso; abre con codos ligeramente flexionados.,Balancear el torso para levantar el peso.,opcion
+0233,push,17,Face pull en polea con cuerda,Cuerda a la cara con codos altos; separa las manos al final.,Tirar con los brazos en vez de los deltoides posteriores.,opcion
+2137,push,18,Press Arnold,Gira las palmas de mirar al frente a mirar arriba mientras subes.,Girar brusco con un peso que no controlas.,opcion
+0120,push,19,Remo al mentón con barra,Codos por encima de las manos; sube solo hasta la altura del pecho.,Subir hasta la barbilla: pinza el hombro.,opcion
+0194,push,20,Extensión de tríceps sobre la cabeza en polea,Codos apuntando al frente y arriba; estira el tríceps por completo.,Abrir los codos y arquear la espalda.,opcion
+0030,push,21,Press de banca agarre cerrado,Manos al ancho de hombros; codos cerca del torso.,Agarre demasiado cerrado: molesta la muñeca.,opcion
+2188,push,22,Extensión de tríceps con mancuerna sobre la cabeza,Sujeta la mancuerna con ambas manos y baja detrás de la cabeza.,Arquear la espalda para compensar el peso.,opcion
+0333,push,23,Patada de tríceps con mancuerna,"Torso paralelo al piso, codo fijo y alto; extiende y aprieta.",Mover el hombro en vez del codo.,opcion
+0814,push,24,Fondos para tríceps,Torso vertical y codos hacia atrás.,Bajar demasiado y rebotar.,opcion
+0607,push,25,Extensión de tríceps en máquina,Alinea el codo con el eje de la máquina.,Rango corto con un peso excesivo.,opcion
+0652,pull,1,Dominadas,Inicia bajando los hombros (depresión escapular) y lleva el pecho a la barra.,Columpiarse y no completar el rango.,sugerido
+0150,pull,2,Jalón al pecho en polea,Lleva la barra a la parte alta del pecho con los codos hacia abajo.,Tirar detrás de la nuca o balancear el torso.,sugerido
+0027,pull,3,Remo con barra,Cadera atrás y espalda neutra; tira la barra hacia el abdomen bajo.,Redondear la espalda o dar el tirón con la lumbar.,sugerido
+0861,pull,4,Remo sentado en polea,Pecho arriba; tira con los codos al abdomen y aprieta las escápulas.,Balancear el torso y redondear la espalda.,sugerido
+0031,pull,5,Curl con barra,Codos fijos al costado; sube sin balanceo.,Mover los codos al frente o balancear la cadera.,sugerido
+0313,pull,6,Curl martillo con mancuernas,Palmas enfrentadas; sube sin rotar la muñeca.,Balancear el torso para subir.,sugerido
+0095,pull,7,Encogimientos de hombros con barra (trapecio),Sube los hombros hacia las orejas y aprieta arriba.,Rotar los hombros con peso: riesgo cervical.,sugerido
+0017,pull,8,Dominadas asistidas,Usa la máquina o banda para completar 6-10 repeticiones con buena forma.,Usar tanta asistencia que ya no entrenas.,opcion
+0292,pull,9,Remo con mancuerna a una mano,Apoya una mano en el banco; tira la mancuerna hacia la cadera.,Rotar el torso al subir.,opcion
+0606,pull,10,Remo en T,Pecho apoyado si la máquina lo permite; aprieta las escápulas.,Usar impulso de piernas.,opcion
+0581,pull,11,Remo alto en máquina,Codos altos y hacia atrás; junta las escápulas.,Tirar con bíceps en vez de la espalda.,opcion
+0238,pull,12,Pullover en polea (brazos rectos),Brazos casi rectos; baja la barra a los muslos usando el dorsal.,Flexionar los codos y convertirlo en jalón.,opcion
+2285,pull,13,Pullover en máquina,"Codos semiflexionados y pegados; baja el maneral usando el dorsal, no los brazos.",Convertirlo en un press con los brazos.,opcion
+0499,pull,14,Remo invertido,Cuerpo recto; tira del pecho a la barra.,Cadera caída o rango corto.,opcion
+0489,pull,15,Extensiones lumbares,"Sube controlando con glúteos y espalda, sin hiperextender.",Subir de golpe con rango excesivo.,opcion
+0294,pull,16,Curl con mancuernas,Supina la muñeca al subir y baja controlado.,Soltar la bajada.,opcion
+0318,pull,17,Curl inclinado con mancuernas,Brazos colgando detrás del torso: estira bien el bíceps abajo.,Subir los codos al frente.,opcion
+0070,pull,18,Curl predicador con barra,Axilas pegadas al apoyo; baja lento.,Extender de golpe en la bajada.,opcion
+0868,pull,19,Curl en polea,Tensión constante; aprieta arriba un segundo.,Tomar impulso con los hombros.,opcion
+0297,pull,20,Curl concentrado,Codo apoyado en el muslo; sube y aprieta.,Mover el hombro.,opcion
+0080,pull,21,Curl reverso con barra,Palmas abajo; sube con la muñeca firme.,Peso alto con la muñeca doblada.,opcion
+0165,pull,22,Curl martillo en polea con cuerda,Codos fijos; sube hasta el hombro.,Echar el torso atrás.,opcion
+0369,pull,23,Curl de muñeca con mancuerna,Antebrazos apoyados; solo se mueve la muñeca.,Mover el codo.,opcion
+0385,pull,24,Curl de muñeca inverso,Palmas abajo; rango corto y controlado.,Peso excesivo.,opcion
+0859,pull,25,Rodillo de muñeca,Enrolla y desenrolla lento con los brazos extendidos.,Usar los hombros en vez de la muñeca.,opcion
+0043,pierna,1,Sentadilla con barra,Pies al ancho de hombros; baja hasta paralelo con espalda neutra y rodillas siguiendo la punta del pie.,Rodillas hacia dentro o subir el pecho muy temprano.,sugerido
+0085,pierna,2,Peso muerto rumano con barra,Cadera atrás con la barra pegada a las piernas; siente el estiramiento de isquios.,Redondear la espalda.,sugerido
+0739,pierna,3,Prensa de piernas 45 grados,Pies al ancho de hombros; baja hasta 90 grados sin despegar la cadera del respaldo.,Despegar la espalda baja del respaldo.,sugerido
+0586,pierna,4,Curl femoral tumbado,Cadera pegada al banco; flexiona por completo.,Levantar la cadera para ayudar.,sugerido
+1409,pierna,5,Puente de glúteo con barra,Aprieta los glúteos arriba un segundo sin arquear la lumbar.,Empujar con la lumbar en vez del glúteo.,sugerido
+1372,pierna,6,Elevación de talones de pie con barra,Sube al máximo sobre las puntas y baja hasta estirar el talón.,Rebotar en cada repetición.,sugerido
+0054,pierna,7,Zancadas con barra,Paso largo; la rodilla de atrás casi toca el piso.,Rodilla delantera muy adelante del pie.,sugerido
+0042,pierna,8,Sentadilla frontal con barra,Codos altos y barra sobre los deltoides; torso vertical.,Codos abajo: la barra se cae al frente.,opcion
+1760,pierna,9,Sentadilla goblet con mancuerna,Sujeta la mancuerna al pecho; baja profundo entre las rodillas.,Levantar los talones.,opcion
+0585,pierna,10,Extensión de cuádriceps en máquina,Extiende por completo y aprieta arriba un segundo.,Rango parcial y balanceo.,opcion
+0410,pierna,11,Sentadilla búlgara con mancuernas,Pie trasero en banco; baja vertical con el peso en el talón delantero.,Paso muy corto y perder el equilibrio.,opcion
+0116,pierna,12,Peso muerto piernas rectas,Piernas casi extendidas; controla el descenso.,Bloquear las rodillas y redondear la espalda.,opcion
+0599,pierna,13,Curl femoral sentado,Ajusta el respaldo; flexiona sin despegar los glúteos.,Hacer rango corto.,opcion
+0044,pierna,14,Buenos días con barra,Cadera atrás con espalda neutra; baja hasta sentir el estiramiento.,Peso alto con espalda redondeada.,opcion
+0696,pierna,15,Curl nórdico asistido,Baja lento resistiendo con los isquios; usa las manos si hace falta.,Caer de golpe sin control.,opcion
+0117,pierna,16,Peso muerto sumo con barra,Pies anchos con punta afuera; baja con la cadera atrás.,Rodillas hacia dentro.,opcion
+3142,pierna,17,Sentadilla sumo en máquina Smith,Baja vertical y empuja desde los talones.,Pies sin rotación externa.,opcion
+0196,pierna,18,Jalón de cadera en polea (pull through),"Cadera atrás; tira con los glúteos, los brazos solo sostienen.",Tirar con brazos y lumbar.,opcion
+0431,pierna,19,Subida al cajón con mancuernas,Sube apoyando el talón completo y baja controlado.,Impulsarse con la pierna de abajo.,opcion
+0597,pierna,20,Abducción de cadera en máquina,Sentado; abre lento y aprieta afuera un segundo.,Usar impulso.,opcion
+1425,pierna,21,Prensa a una pierna 45 grados,Pie centrado; baja controlado sin bloquear la cadera.,Pinzar la cadera por rango excesivo.,opcion
+0710,pierna,22,Abducción de cadera de pie,De pie; abre la pierna contra la gravedad sin inclinarte.,Inclinar el torso para ayudar.,opcion
+0594,pierna,23,Elevación de talones sentado en máquina,Rodillas a 90 grados; usa rango completo.,Rango corto con rebote.,opcion
+0417,pierna,24,Elevación de talones con mancuernas,Sube lento y aprieta arriba.,Perder el equilibrio por ir rápido.,opcion
+2289,pierna,25,Elevación de talones en prensa,Usa las puntas en la plataforma y empuja con el metatarso.,Bloquear las rodillas de golpe.,opcion
+0472,core,1,Elevación de piernas colgado,Evita el balanceo; sube con el abdomen y baja lento.,Columpiarse.,sugerido
+0274,core,2,Crunch en el suelo,Sube solo las escápulas y exhala al contraer.,Tirar el cuello con las manos.,sugerido
+0687,core,3,Giros rusos,"Rota el torso, no solo los brazos.",Curvar la espalda y girar solo con los brazos.,sugerido
+0857,core,4,Rueda abdominal,Rodillas apoyadas; baja controlando sin arquear la lumbar.,Arquear la espalda baja.,sugerido
+3239,core,5,Plancha con toque de hombro,Cadera quieta; alterna toques sin balancearte.,Mover la cadera.,sugerido
+0872,core,6,Crunch inverso,"Lleva las rodillas al pecho con la pelvis, no con impulso.",Usar solo las piernas.,opcion
+0175,core,7,Crunch arrodillado en polea,Arrodillado; flexiona llevando los codos a las rodillas.,Tirar con los brazos.,opcion
+0826,core,8,Elevación de piernas en paralelas,Sube con el abdomen y controla la bajada.,Balancear las piernas.,opcion
