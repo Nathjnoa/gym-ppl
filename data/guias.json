@@ -1,0 +1,113 @@
+{
+ "version": "2026-09-10",
+ "disclaimer": "Guía general para adultos sanos con objetivo de hipertrofia; no es consejo médico. Si hay dolor, lesión o condición de salud, consulten a un profesional. Cada cifra lleva su fuente con PMID.",
+ "principios": [
+  {
+   "titulo": "Volumen",
+   "texto": "Apunten a 10 o más series semanales por músculo (sumando compuestos y aislamiento). Más series suelen dar más hipertrofia, con retornos decrecientes: suban volumen solo si se recuperan bien.",
+   "cita": "Schoenfeld et al. 2017, J Sports Sci · PMID 27433992 · Pelland et al. 2026, Sports Med · PMID 41343037"
+  },
+  {
+   "titulo": "Repeticiones",
+   "texto": "6-12 repeticiones es el rango práctico. Con esfuerzo equivalente, rangos más amplios dan hipertrofia similar; eviten cargas extremas (cerca de 20% 1RM, ~60 reps) si buscan maximizar músculo.",
+   "cita": "ACSM 2009, Med Sci Sports Exerc · PMID 19204579 · Schoenfeld et al. 2017, J Strength Cond Res · PMID 28834797 · Lasevicius et al. 2018, Eur J Sport Sci · PMID 29564973"
+  },
+  {
+   "titulo": "Descanso entre series",
+   "texto": "2-3 min en compuestos; en aislamiento, al menos 60-90 s. Descansar más de 60 s da una pequeña ventaja y no hay diferencias apreciables más allá de ~90 s; para fuerza, 3 min rinden más.",
+   "cita": "Singer et al. 2024, Front Sports Act Living · PMID 39205815 · Schoenfeld et al. 2016, J Strength Cond Res · PMID 26605807"
+  },
+  {
+   "titulo": "Frecuencia",
+   "texto": "Entrenar cada músculo 2 veces por semana es práctico para repartir el volumen. Con volumen equiparado, 1, 2 o 3+ veces por semana no cambia significativamente la hipertrofia.",
+   "cita": "Schoenfeld, Grgic & Krieger 2019, J Sports Sci · PMID 30558493"
+  },
+  {
+   "titulo": "Esfuerzo (RIR)",
+   "texto": "Dejen 1-3 repeticiones en reserva (RIR) en la mayoría de series. La hipertrofia mejora al acercarse al fallo, pero llegar al fallo en todas las series suma fatiga sin ventaja clara.",
+   "cita": "Robinson et al. 2024, Sports Med · PMID 38970765"
+  },
+  {
+   "titulo": "Técnica y progresión",
+   "texto": "Rango completo de movimiento (el efecto es claro sobre todo en tren inferior) y subir la carga 2-10% cuando superen el objetivo de repeticiones con buena técnica.",
+   "cita": "Pallarés et al. 2021, Scand J Med Sci Sports · PMID 34170576 · ACSM 2009, Med Sci Sports Exerc · PMID 19204579"
+  }
+ ],
+ "dias": {
+  "push": {
+   "nota": "Pecho, hombros y tríceps. Press pesado al inicio, aislamiento al final.",
+   "bloques": [
+    {
+     "titulo": "Press de banca",
+     "texto": "Escápulas retraídas y codos a unos 45 grados; bajen con control y usen rango completo: da más fuerza e hipertrofia que el rango parcial.",
+     "cita": "Pallarés et al. 2021, Scand J Med Sci Sports · PMID 34170576"
+    },
+    {
+     "titulo": "Hombro",
+     "texto": "Press por encima de la cabeza antes de las elevaciones; en laterales el codo guía el movimiento y se detiene a la altura del hombro.",
+     "cita": "Instrucciones del dataset exercises-dataset, ejercicio 0334"
+    },
+    {
+     "titulo": "Tríceps",
+     "texto": "Press cerrado como básico pesado y extensiones con codos fijos para aislar; dejen 1-2 RIR en las series de aislamiento.",
+     "cita": "Robinson et al. 2024, Sports Med · PMID 38970765"
+    }
+   ]
+  },
+  "pull": {
+   "nota": "Espalda, bíceps y antebrazo. Empiecen con fuerza (dominadas/remo) y terminen con brazos.",
+   "bloques": [
+    {
+     "titulo": "Remos y jalones",
+     "texto": "Inicien con depresión escapular y aprieten las escápulas; rango completo en cada repetición.",
+     "cita": "Pallarés et al. 2021, Scand J Med Sci Sports · PMID 34170576"
+    },
+    {
+     "titulo": "Bíceps",
+     "texto": "Sin balanceo; el curl reverso y el martillo cubren braquial y antebrazo además del bíceps.",
+     "cita": "Instrucciones del dataset exercises-dataset, ejercicios 0080 y 0165"
+    },
+    {
+     "titulo": "Volumen",
+     "texto": "La espalda acumula mucho volumen entre jalones y remos; cuenten 10+ series semanales incluyendo el trabajo indirecto de bíceps.",
+     "cita": "Schoenfeld et al. 2017, J Sports Sci · PMID 27433992"
+    }
+   ]
+  },
+  "pierna": {
+   "nota": "Cuádriceps, isquios, glúteos y pantorrilla. El día donde más se notan el rango completo y los descansos largos.",
+   "bloques": [
+    {
+     "titulo": "Sentadilla y prensa",
+     "texto": "Bajen al menos a paralelo con espalda neutra. En tren inferior, el rango completo dio más hipertrofia (ES 0.88) y fuerza (ES 0.56) que el parcial.",
+     "cita": "Pallarés et al. 2021, Scand J Med Sci Sports · PMID 34170576"
+    },
+    {
+     "titulo": "Isquios",
+     "texto": "Combinen cadera (peso muerto rumano) y rodilla (curl femoral); dejen 1-2 RIR y controlen la bajada.",
+     "cita": "Robinson et al. 2024, Sports Med · PMID 38970765"
+    },
+    {
+     "titulo": "Descansos del día",
+     "texto": "2-3 min en sentadilla y peso muerto; 60-90 s en pantorrilla y aislamiento.",
+     "cita": "Schoenfeld et al. 2016, J Strength Cond Res · PMID 26605807 · Singer et al. 2024, Front Sports Act Living · PMID 39205815"
+    }
+   ]
+  },
+  "core": {
+   "nota": "Bloque opcional (sí, sabemos que casi nunca lo hacen). Si lo entrenan, 2-3 veces por semana al final de la sesión.",
+   "bloques": [
+    {
+     "titulo": "Frecuencia",
+     "texto": "El abdomen tolera frecuencia alta: 2-3 sesiones cortas por semana, sumando 10+ series semanales entre todos los ejercicios.",
+     "cita": "Schoenfeld et al. 2017, J Sports Sci · PMID 27433992 · Schoenfeld, Grgic & Krieger 2019, J Sports Sci · PMID 30558493"
+    },
+    {
+     "titulo": "Ejecución",
+     "texto": "En planchas y crunch inverso aprieten la pelvis y exhale al contraer; dejen 1-2 RIR, no busquen el fallo en cada serie.",
+     "cita": "Robinson et al. 2024, Sports Med · PMID 38970765"
+    }
+   ]
+  }
+ }
+}
