@@ -70,3 +70,16 @@ input,select{
 .aviso{color:var(--mut); font-size:13px; margin:8px 0}
 .foot{max-width:760px; margin:0 auto; padding:0 16px 30px; color:var(--mut); font-size:12.5px}
 .foot p{margin:6px 0}
+
+.fila-sesion{display:grid; grid-template-columns:44px 1fr auto 28px; gap:10px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 10px; margin:0 0 8px}
+.fila-sesion img{width:44px; height:44px; border-radius:8px; object-fit:cover; background:#0a0d12}
+.fila-info{display:flex; flex-direction:column; min-width:0}
+.fila-info strong{font-size:14px}
+.fila-info span{color:var(--mut); font-size:12px}
+.series{display:flex; gap:4px}
+button.serie{width:26px; height:26px; border-radius:8px; border:1px solid var(--line); background:var(--card2); color:var(--mut); font:inherit; font-size:12px; cursor:pointer}
+button.serie.hecha{background:#243247; border-color:#3a5680; color:#cfe0ff}
+button.quitar{background:none; border:none; color:var(--mut); font-size:20px; line-height:1; cursor:pointer; padding:0 4px}
+button.add{margin-top:8px; font:inherit; font-size:13px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:var(--card2); color:var(--txt); cursor:pointer; width:auto}
+button.add.dentro{background:#243247; border-color:#3a5680; color:#cfe0ff}
+.btn.limpiar{margin-top:4px; background:transparent; color:var(--mut)}

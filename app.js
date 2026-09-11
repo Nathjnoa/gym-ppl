@@ -30,7 +30,7 @@ const TARGET_DIA = {
 };
 const BODY_DIA = {"chest":"push","shoulders":"push","back":"pull","upper legs":"pierna","lower legs":"pierna","waist":"core"};
 
-const VERSION = "20260910";
+const VERSION = "20260910b";
 const $app = document.getElementById("app");
 const $ = sel => document.querySelector(sel);
 let ppl = [], guias = null, library = null, cargandoLib = null;
@@ -43,14 +43,29 @@ const musculo = t => TARGET_ES[t] || t;
 const diaDe = r => TARGET_DIA[r.target] || BODY_DIA[r.body_part] || null;
 const mostrar = html => { $app.innerHTML = html; };
 
+const SESION_KEY = "gymppl.sesion.v1";
+function leerSesion(){ try { return JSON.parse(localStorage.getItem(SESION_KEY)) || {}; } catch (e) { return {}; } }
+function guardarSesion(s){ try { localStorage.setItem(SESION_KEY, JSON.stringify(s)); } catch (e) {} }
+function sesionDia(d){ return leerSesion()[d] || {}; }
+function toggleEjercicio(d, id){ const s = leerSesion(); s[d] = s[d] || {}; if (s[d][id] === undefined) s[d][id] = 0; else delete s[d][id]; guardarSesion(s); }
+function marcarSerie(d, id, n){ const s = leerSesion(); s[d] = s[d] || {}; const actual = s[d][id] || 0; s[d][id] = actual === n ? n - 1 : n; guardarSesion(s); }
+function quitarEjercicio(d, id){ const s = leerSesion(); if (s[d] && s[d][id] !== undefined) { delete s[d][id]; guardarSesion(s); } }
+function limpiarDia(d){ const s = leerSesion(); delete s[d]; guardarSesion(s); }
+function refrescarVista(){
+  const h = location.hash;
+  if (h.indexOf("#/detalle/") === 0) renderDetalle(h.split("/")[2]);
+  else if (diaActual) renderDia(diaActual);
+}
+
 function chips(r){
   const vistos = new Set();
   const lista = [r.target].concat(r.secondary_muscles || []).filter(t => t && !vistos.has(t) && vistos.add(t));
   return lista.map((t, i) => `<span class="chip${i === 0 ? " target" : ""}">${esc(musculo(t))}</span>`).join("");
 }
 
-function card(r){
+function card(r, ctx){
   const nombre = r.nombre_es || r.name;
+  const enSesion = ctx && ctx.sesion && ctx.sesion[r.id] !== undefined;
   return `<article class="card" data-id="${esc(r.id)}">
     <img src="${esc(r.gif_url)}" alt="${esc(nombre)}" loading="lazy" width="96" height="96">
     <div>
@@ -59,6 +74,7 @@ function card(r){
       <p class="meta">${esc(equip(r.equipment))}</p>
       <p class="chips">${chips(r)}</p>
       ${r.tip ? `<p class="tip">${esc(r.tip)}</p>` : ""}
+      ${ctx ? `<button class="add${enSesion ? " dentro" : ""}" data-add="${esc(r.id)}" data-dia="${esc(ctx.dia)}">${enSesion ? "En mi sesión" : "+ Añadir a mi sesión"}</button>` : ""}
     </div>
   </article>`;
 }
@@ -98,13 +114,30 @@ function renderDia(d){
     .concat(equipos.map(e => `<button class="chip filtro${filtroEquipoDia === e ? " activo" : ""}" data-equipo="${esc(e)}">${esc(equip(e))}</button>`))
     .join("");
   const guia = guias && guias.dias && guias.dias[d];
+  const ses = sesionDia(d);
+  const ctx = { dia: d, sesion: ses };
+  const enSesion = items.filter(r => ses[r.id] !== undefined);
+  const hechas = enSesion.reduce((a, r) => a + (ses[r.id] || 0), 0);
+  const sesionHTML = enSesion.map(r => {
+    const n = ses[r.id] || 0;
+    const puntos = [1, 2, 3, 4].map(x => `<button class="serie${x <= n ? " hecha" : ""}" data-serie="${x}" data-id="${esc(r.id)}" aria-label="Serie ${x}">${x}</button>`).join("");
+    return `<div class="fila-sesion">
+      <img src="${esc(r.gif_url)}" alt="" loading="lazy" width="44" height="44">
+      <div class="fila-info"><strong>${esc(r.nombre_es || r.name)}</strong><span>${esc(equip(r.equipment))}</span></div>
+      <div class="series">${puntos}</div>
+      <button class="quitar" data-quitar="${esc(r.id)}" aria-label="Quitar de mi sesión">&times;</button>
+    </div>`;
+  }).join("");
   mostrar(`<a class="volver" href="#/" data-back>&larr; Todos los días</a>
     <h1>${DIA_TITULO[d]}</h1>
     ${guia ? `<p class="aviso">${esc(guia.nota)}</p>` : ""}
+    <h2>Mi sesión${enSesion.length ? ` (${enSesion.length}) · ${hechas}/${enSesion.length * 4} series` : ""}</h2>
+    ${enSesion.length ? sesionHTML + `<button class="btn limpiar" data-limpiar="${esc(d)}">Vaciar el día</button>`
+      : `<p class="aviso">Toca "Añadir a mi sesión" en un ejercicio y marca tus series aquí.</p>`}
     <h2>Equipo</h2><div class="cobertura">${chipsEquipo}</div>
     <h2>Cobertura del día</h2><div class="cobertura">${cob}</div>
-    ${sug.length ? `<h2>Sesión sugerida</h2><div class="lista">${sug.map(card).join("")}</div>` : ""}
-    ${opc.length ? `<h2>Más opciones</h2><div class="lista">${opc.map(card).join("")}</div>` : ""}
+    ${sug.length ? `<h2>Sesión sugerida</h2><div class="lista">${sug.map(r => card(r, ctx)).join("")}</div>` : ""}
+    ${opc.length ? `<h2>Más opciones</h2><div class="lista">${opc.map(r => card(r, ctx)).join("")}</div>` : ""}
     ${!visibles.length ? `<p class="vacio">Sin ejercicios de ese equipo en este día.</p>` : ""}
     ${guia ? `<h2>Consejos del día</h2>${guia.bloques.map(bloqueHTML).join("")}` : ""}`);
 }
@@ -126,6 +159,8 @@ function renderDetalle(id){
     return;
   }
   const nombre = r.nombre_es || r.name;
+  const dia = diaDe(r);
+  const enSesion = dia && sesionDia(dia)[r.id] !== undefined;
   mostrar(`<a class="volver" href="#/" data-back>&larr; Volver</a>
     <div class="detalle">
       <img src="${esc(r.gif_url)}" alt="${esc(nombre)}" width="180" height="180">
@@ -133,6 +168,7 @@ function renderDetalle(id){
       ${r.nombre_es ? `<p class="en">${esc(r.name)}</p>` : ""}
       <p class="meta">${esc(equip(r.equipment))}</p>
       <p class="chips">${chips(r)}</p>
+      ${dia ? `<button class="add${enSesion ? " dentro" : ""}" data-add="${esc(r.id)}" data-dia="${dia}">${enSesion ? "Quitar de mi sesión" : "+ Añadir a mi sesión"}</button>` : ""}
       ${cur ? `<div class="bloque"><h3>Cómo sentirlo</h3><p>${esc(cur.tip)}</p></div>
         <div class="bloque"><h3>Error típico</h3><p>${esc(cur.clave)}</p></div>` : ""}
       <h2>Técnica paso a paso</h2>
@@ -157,7 +193,7 @@ function filtrarLibrary(){
 function pintarResultados(){
   const res = filtrarLibrary();
   $("#cuenta").textContent = res.length + " resultado(s)";
-  $("#resultados").innerHTML = res.slice(0, 80).map(card).join("") ||
+  $("#resultados").innerHTML = res.slice(0, 80).map(r => card(r)).join("") ||
     `<p class="vacio">Sin resultados. Prueba otro término o quita filtros.</p>`;
   $("#tope").textContent = res.length > 80 ? "Mostrando los primeros 80; afina la búsqueda." : "";
 }
@@ -207,6 +243,14 @@ $app.addEventListener("click", e => {
   if (e.target.closest("[data-back]")) { e.preventDefault(); history.back(); return; }
   const chipEq = e.target.closest("[data-equipo]");
   if (chipEq && diaActual) { filtroEquipoDia = chipEq.dataset.equipo; renderDia(diaActual); return; }
+  const add = e.target.closest("[data-add]");
+  if (add && add.dataset.dia) { toggleEjercicio(add.dataset.dia, add.dataset.add); refrescarVista(); return; }
+  const serie = e.target.closest("[data-serie]");
+  if (serie && diaActual) { marcarSerie(diaActual, serie.dataset.id, parseInt(serie.dataset.serie, 10)); refrescarVista(); return; }
+  const quitar = e.target.closest("[data-quitar]");
+  if (quitar && diaActual) { quitarEjercicio(diaActual, quitar.dataset.quitar); refrescarVista(); return; }
+  const limpiar = e.target.closest("[data-limpiar]");
+  if (limpiar && confirm("¿Vaciar la sesión de este día?")) { limpiarDia(limpiar.dataset.limpiar); refrescarVista(); return; }
   const el = e.target.closest(".card");
   if (el && el.dataset.id) location.hash = "#/detalle/" + el.dataset.id;
 });

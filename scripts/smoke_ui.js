@@ -30,6 +30,12 @@ global.window = {
 };
 global.location = { hash: "#/" };
 global.history = { back: () => {} };
+const almacen = new Map();
+global.localStorage = {
+  getItem: k => (almacen.has(k) ? almacen.get(k) : null),
+  setItem: (k, v) => { almacen.set(k, String(v)); },
+  removeItem: k => { almacen.delete(k); },
+};
 global.fetch = url => {
   const p = path.join(raiz, url.split("?")[0]);
   return Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(p, "utf8"))) });
@@ -53,6 +59,17 @@ const checks = [
     const html = elApp.innerHTML;
     const tarjetas = (html.match(/class="card"/g) || []).length;
     return tarjetas === 5 && html.includes("Polea") && html.includes("activo");
+  }],
+  ["sesión: añadir, marcar series y persistir", () => {
+    global.location.hash = "#/dia/push";
+    global.__route();
+    elApp.listeners.click({ target: { closest: sel => sel === "[data-equipo]" ? { dataset: { equipo: "" } } : null } });
+    elApp.listeners.click({ target: { closest: sel => sel === "[data-add]" ? { dataset: { add: "0025", dia: "push" } } : null } });
+    if (!elApp.innerHTML.includes("Mi sesión (1)")) return false;
+    elApp.listeners.click({ target: { closest: sel => sel === "[data-serie]" ? { dataset: { serie: "3", id: "0025" } } : null } });
+    if (!elApp.innerHTML.includes("3/4 series")) return false;
+    const guardado = JSON.parse(global.localStorage.getItem("gymppl.sesion.v1"));
+    return guardado.push["0025"] === 3;
   }],
   ["detalle: pasos y músculos", () => {
     global.location.hash = "#/detalle/0025";

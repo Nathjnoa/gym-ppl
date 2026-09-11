@@ -26,6 +26,10 @@ python3 -m http.server 8080
   pool curado.
 - Toca una tarjeta para ver el GIF, la técnica numerada, cómo sentirlo y el
   error típico.
+- **Mi sesión:** añade ejercicios con "+ Añadir a mi sesión" y marca tus series
+  (1-4) mientras entrenas. Se guarda en el navegador del celular
+  (`localStorage`), no en internet; si borras los datos del sitio, se pierde.
+  No se sincroniza entre dispositivos.
 - Buscar: filtra los 1,324 ejercicios del dataset por día, músculo y equipo.
 
 ## Estructura
