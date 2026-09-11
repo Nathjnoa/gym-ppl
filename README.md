@@ -37,6 +37,7 @@ data/
   guias.json                     # guía por día con citas (PMID)
   ppl.json                       # generado: curados completos en español
   library.json                   # generado: 1,324 slim (carga diferida)
+media/                           # 83 GIFs de la curación, copiados al repo
 scripts/
   build_data.py                  # descarga el dataset, cruza curación y genera JSONs
   check.py                       # validación de datos (offline y --online)
@@ -58,6 +59,11 @@ node scripts/smoke_ui.js          # smoke de la interfaz
 
 El script falla con error claro si un `id` de la curación no existe en el
 dataset. El mapa día↔músculo vive en `scripts/build_data.py`.
+
+El dataset upstream está fijado a un commit (`UPSTREAM_SHA` en `build_data.py`)
+y los GIFs de la curación se copian a `media/` para que la página no dependa de
+cambios externos. La biblioteca completa usa el CDN fijado a ese mismo commit.
+Para subir de versión del dataset, cambia el SHA y vuelve a correr el build.
 
 ## Créditos, licencias y aviso
 

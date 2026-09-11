@@ -80,6 +80,10 @@ def main():
                     fallos.append(f"ppl {r['id']}: {campo} vacío")
             if r.get("sesion") not in ("sugerido", "opcion"):
                 fallos.append(f"ppl {r['id']}: sesion inválida ({r.get('sesion')})")
+            if not str(r.get("gif_url", "")).startswith("media/"):
+                fallos.append(f"ppl {r['id']}: gif_url no es local ({r.get('gif_url')})")
+            elif not os.path.exists(os.path.join(ROOT, r["gif_url"])):
+                fallos.append(f"ppl {r['id']}: falta el archivo {r['gif_url']}")
             por_dia.setdefault(r.get("dia"), []).append(r)
         for d in DIAS_PPL:
             filas = por_dia.get(d, [])
@@ -113,8 +117,8 @@ def main():
         print("guias.json: aún no existe (pendiente)")
 
     if args.online and ppl:
-        urls = [r[c] for r in ppl for c in ("gif_url", "image")]
-        print(f"verificando {len(urls)} URLs de media...")
+        urls = [r["image"] for r in ppl if str(r.get("image", "")).startswith("http")]
+        print(f"verificando {len(urls)} URLs remotas (miniaturas)...")
         with ThreadPoolExecutor(max_workers=8) as pool:
             resultados = list(pool.map(head_ok, urls))
         malas = [u for u, ok in zip(urls, resultados) if not ok]

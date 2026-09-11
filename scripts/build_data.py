@@ -13,8 +13,11 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 RAW = os.path.join(DATA, "raw")
-UPSTREAM = "https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/main/data/exercises.json"
-CDN = "https://cdn.jsdelivr.net/gh/hasaneyldrm/exercises-dataset@main/"
+# Dataset fijado a un commit para que la página no cambie bajo los pies (bump manual).
+UPSTREAM_SHA = "7455efae41b330c265e7cd4b78dfa848e7ce5ebd"
+UPSTREAM = f"https://raw.githubusercontent.com/hasaneyldrm/exercises-dataset/{UPSTREAM_SHA}/data/exercises.json"
+CDN = f"https://cdn.jsdelivr.net/gh/hasaneyldrm/exercises-dataset@{UPSTREAM_SHA}/"
+MEDIA = os.path.join(ROOT, "media")
 ATRIBUCION = "© Gym visual — https://gymvisual.com/"
 
 DAY_BY_TARGET = {
@@ -82,6 +85,16 @@ def dia_de(rec):
     return DAY_BY_TARGET.get(rec["target"]) or DAY_BY_BODY_PART.get(rec["body_part"])
 
 
+def copiar_gif(url):
+    """Copia el GIF de un ejercicio curado a media/ y devuelve la ruta local."""
+    os.makedirs(MEDIA, exist_ok=True)
+    nombre = os.path.basename(url)
+    destino = os.path.join(MEDIA, nombre)
+    if not os.path.exists(destino):
+        download(url, destino)
+    return "media/" + nombre
+
+
 def curar(por_id):
     ruta = os.path.join(DATA, "curacion.csv")
     if not os.path.exists(ruta):
@@ -103,6 +116,7 @@ def curar(por_id):
                 sesion=fila["sesion"].strip(),
                 attribution=ATRIBUCION,
             )
+            item["gif_url"] = copiar_gif(item["gif_url"])
             filas.append(item)
     return filas
 
